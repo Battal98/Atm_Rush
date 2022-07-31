@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1be6c1db3e54ce4b851d425b4015a2a, type: 3}
+  m_Name: CD_Camera
+  m_EditorClassIdentifier: 
+  CameraData:
+    cameraOnPlayRot: {x: 19, y: 0, z: 0}
+    _camYPosition: 4
+    camPathTargets:
+    - {fileID: 6398893885015827908, guid: 321a82770bf06a741aae7a93c3ec8e1e, type: 3}
+    - {fileID: 4078713473684078813, guid: ef87485da0b5fda4e938d7a3ed24eb4e, type: 3}
