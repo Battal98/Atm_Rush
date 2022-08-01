@@ -55,6 +55,8 @@ namespace Managers
 
         private void Start()
         {
+            if (instantiateLevelID >= Levels.Count)
+                instantiateLevelID = 0;
             CoreGameSignals.Instance.onLevelInitialize.Invoke();
             OnSetLevelID();
             OnSetInstantiateLevelID();
@@ -70,20 +72,15 @@ namespace Managers
 
         private void SubscribeEvents()
         {
-            //CoreGameSignals.Instance.onGameOpen += OnGameOpen;
             CoreGameSignals.Instance.onNextLevel += OnNextLevel;
             CoreGameSignals.Instance.onLevelInitialize += OnLevelInitialize;
             CoreGameSignals.Instance.onClearActiveLevel += OnClearActiveLevel;
             CoreGameSignals.Instance.onGetLevelID += OnGetLevelID;
             CoreGameSignals.Instance.onGetInstantiateLevelID += OnGetInstantiateLevelID;
             
-
-
         }
         private void UnsubscribeEvents()
         {
-
-            //CoreGameSignals.Instance.onGameOpen -= OnGameOpen;
             CoreGameSignals.Instance.onNextLevel -= OnNextLevel;
             CoreGameSignals.Instance.onLevelInitialize -= OnLevelInitialize;
             CoreGameSignals.Instance.onClearActiveLevel -= OnClearActiveLevel;
@@ -100,12 +97,6 @@ namespace Managers
             
         }
 
-
-        //private void OnGameOpen()
-        //{
-        //    CoreGameSignals.Instance.onLevelInitialize.Invoke();
-
-        //}
         
         private void OnLevelInitialize()
         {
@@ -118,8 +109,8 @@ namespace Managers
 
             instantiateLevelID++;
             _levelID++;
-            //if (instantiateLevelID >= Levels.Count)
-            //    instantiateLevelID = 0;
+            if (instantiateLevelID >= Levels.Count)
+                instantiateLevelID = 0;
             CoreGameSignals.Instance.onClearActiveLevel?.Invoke();
             CoreGameSignals.Instance.onReset?.Invoke();
             OnSetLevelID();
