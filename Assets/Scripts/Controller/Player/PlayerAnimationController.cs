@@ -31,9 +31,10 @@ namespace Controllers
                     break;
                 case PlayerAnimationStates.Walk:
                     playerAnimator.SetTrigger("Walk");
+                    break;                
+                case PlayerAnimationStates.Dance:
+                    playerAnimator.SetTrigger("Dance");
                     break;
-                
-                    
             }
             
         }

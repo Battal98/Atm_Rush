@@ -190,7 +190,7 @@ namespace Managers
             this.transform.DORotate(new Vector3(0, 180, 0), 1f);
             this.transform.DOMove(_getTarget.gameObject.transform.position, 1f).OnComplete(() =>
             {
-                animationController.ChangeAnimationState(PlayerAnimationStates.Idle); // Dans Animation 
+                animationController.ChangeAnimationState(PlayerAnimationStates.Dance); // Dans Animation 
                 playerMoneyPoolController.SetActiveToMoneysInPlayer();
                 CalculatePlayerHeightCanReach();
                 PlayerMoveToUp();
@@ -223,6 +223,8 @@ namespace Managers
         }
 
         #endregion
+
+
 
     }
 }

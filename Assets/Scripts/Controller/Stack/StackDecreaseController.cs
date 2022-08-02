@@ -46,41 +46,29 @@ namespace Controllers
 
         public void ThrowRandomObj( List<GameObject> _stackList,int index)
         {
-            //3 4   
-            // 4 5 6 7 8 9
-            //5 6 7 8 9
-            //6    7   8     9
             for (int i = index; i < _stackList.Count-1; i++)
             {   
 
                 if (index != -1)
                 {
-
-                    Debug.Log(index);
-    
-                    GameObject ddd= _stackList[index];
+                    GameObject collectableInStack= _stackList[index];
                                             
                     float xRandom = Random.Range(-3, 3);
-                    float zRandom = Random.Range(ddd.transform.position.z + 8f, ddd.transform.position.z + 16f);
-                    ddd.GetComponentInChildren<Collider>().enabled = false;
-                    ddd.GetComponentInChildren<CollectablePhysicsController>().isITaken = false;
+                    float zRandom = Random.Range(collectableInStack.transform.position.z + 8f, collectableInStack.transform.position.z + 16f);
+                    collectableInStack.GetComponentInChildren<Collider>().enabled = false;
+                    collectableInStack.GetComponentInChildren<CollectablePhysicsController>().isITaken = false;
                     
-                    ddd.transform.DOJump(new Vector3(xRandom, 0.65f, zRandom), 1f, 2, 0.6f, snapping: false).OnComplete(() => {
+                    collectableInStack.transform.DOJump(new Vector3(xRandom, 0.65f, zRandom), 1f, 2, 0.6f, snapping: false).OnComplete(() => {
 
-                        ddd.GetComponentInChildren<Collider>().enabled = true;
+                        collectableInStack.GetComponentInChildren<Collider>().enabled = true;
                         
                         
-                        ddd.transform.parent = collectables.transform;
-
+                        collectableInStack.transform.parent = collectables.transform;
 
                     });
-                    _stackList.Remove(ddd);
-
-
-
+                    _stackList.Remove(collectableInStack);
 
                 }
-
             }
             _stackList.TrimExcess();
         }
