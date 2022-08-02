@@ -4,5 +4,6 @@ namespace Enums
     {
         Walk,
         Idle,
+        Dance
     }
 }

@@ -28,14 +28,14 @@ namespace Controllers
                 LoadDataParams.NewInCome = ES3.Load<int>("InCome");
                 LoadDataParams.NewInComePrice = ES3.Load<int>("InComePrice");
 
-                if (LoadDataParams.NewCharButtonName == null)
+                /*if (LoadDataParams.NewCharButtonName == null)
                 {
                     LoadDataParams.NewCharButtonName = "Black";
                 }
                 else
                 {
                     LoadDataParams.NewCharButtonName = ES3.Load<string>("CharButtonName");
-                }
+                }*/
 
             }
             
