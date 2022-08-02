@@ -372,6 +372,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 549658607326449079}
     m_Modifications:
+    - target: {fileID: 2633006764810868197, guid: 1be8199a4f40e00479101b0060624230, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2633006764810868197, guid: 1be8199a4f40e00479101b0060624230, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3e75c5f1e00b0964ea578b992f9f0f91, type: 2}
     - target: {fileID: 2633436874196432509, guid: 1be8199a4f40e00479101b0060624230, type: 3}
       propertyPath: m_Name
       value: MiniGameRoad_Prefabs

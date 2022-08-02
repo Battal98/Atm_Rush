@@ -34,6 +34,8 @@ MonoBehaviour:
     - Cinemachine
     - ToonyColorsPro2.Demo
     - ToonyColorsPro.Runtime
+    - sc.stylizedwater2.editor
+    - sc.stylizedwater2.runtime
     - ToonyColorsPro.Editor
     - ToonyColorsPro.Demo.Editor
     showAdvancedSettings: 0

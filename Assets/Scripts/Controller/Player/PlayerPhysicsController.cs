@@ -52,7 +52,7 @@ namespace Controllers
             }
             else
             {
-                manager.StopPlayer(_target);
+                manager.PlayerSetPositionToInfrontOfConveyor(_target);
                 CoreGameSignals.Instance.onLevelFailed?.Invoke();
             }
         }
