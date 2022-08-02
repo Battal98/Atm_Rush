@@ -12,7 +12,7 @@ namespace Controllers
         public void CameraMoveToPlayPosAndRot(Vector3[] _camPath, Vector3 _rotEndValue )
         {
             //SetCameraTarget();
-            this.transform.DOLocalPath(_camPath, 1f, PathType.CatmullRom);
+            this.transform.DOLocalPath(_camPath, 0.5f, PathType.CatmullRom);
             this.transform.DORotate(_rotEndValue, 1f);
         }
 
@@ -46,9 +46,10 @@ namespace Controllers
 
         public void SetCameraMoveToFinalPos( GameObject _obj ,float _newCamPosOffset ,CinemachineFramingTransposer _cMFramingTransposer) 
         {
-            _obj.transform.DORotate(new Vector3(19,-30,0),0.5f);
+            _obj.transform.DORotate(new Vector3(19,-20,0),0.5f);
             DOTween.To(() => _cMFramingTransposer.m_TrackedObjectOffset.x, z => _cMFramingTransposer.m_TrackedObjectOffset.x = z, _newCamPosOffset, 0.5f);
-            DOTween.To(() => _cMFramingTransposer.m_CameraDistance, x => _cMFramingTransposer.m_CameraDistance = x, 13, 1f);
+            DOTween.To(() => _cMFramingTransposer.m_TrackedObjectOffset.y, t => _cMFramingTransposer.m_TrackedObjectOffset.y = t, 2f, 0.5f);
+            DOTween.To(() => _cMFramingTransposer.m_CameraDistance, x => _cMFramingTransposer.m_CameraDistance = x, 12, 1f);
         }
     } 
 }

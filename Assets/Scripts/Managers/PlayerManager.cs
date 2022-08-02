@@ -160,17 +160,25 @@ namespace Managers
 
         #region Player Mini Game Movement and Finish Jobs
 
-        public void StopPlayer(Transform _playerTarget)
+        private void DisablePlayerTouch()
         {
-            movementController.IsReadyToPlay(false);
             InputSignals.Instance.onDisableInput?.Invoke();
+        }
+        private void StopPlayer()
+        {
+            DisablePlayerTouch();
+            movementController.IsReadyToPlay(false);
             var _col = GetComponentInChildren<Collider>();
             _col.enabled = false;
-            this.transform.DOMove(_playerTarget.position + new Vector3(0, 0, -5f), 0.1f).OnComplete(() => animationController.ChangeAnimationState(PlayerAnimationStates.Idle));
+        }
+        public void PlayerSetPositionToInfrontOfConveyor(Transform _playerTarget)
+        {
+            StopPlayer();
+            this.transform.DOMove(_playerTarget.position + new Vector3(0, 0, -5f), 0.1f);
         }
         public IEnumerator StopPlayerAndMoveToMiniGame(Transform _playerTarget, GameObject _handCar)
         {
-            StopPlayer(_playerTarget);
+            PlayerSetPositionToInfrontOfConveyor(_playerTarget);
             yield return new WaitForSeconds(1f);
             PlayerMoveToInFrontofCubes(_playerTarget, _handCar);
         }
@@ -179,16 +187,17 @@ namespace Managers
         {
             _handCar.SetActive(false);
             var _getTarget = _playerTarget.transform.GetChild(0);
-            this.transform.DORotate(new Vector3(0, 180, 0), 0.5f);
-            this.transform.DOMove(_getTarget.gameObject.transform.position, 0.2f).OnComplete(() =>
+            this.transform.DORotate(new Vector3(0, 180, 0), 1f);
+            this.transform.DOMove(_getTarget.gameObject.transform.position, 1f).OnComplete(() =>
             {
+                animationController.ChangeAnimationState(PlayerAnimationStates.Idle); // Dans Animation 
                 playerMoneyPoolController.SetActiveToMoneysInPlayer();
                 CalculatePlayerHeightCanReach();
                 PlayerMoveToUp();
 
             });
         }
-        private void CalculatePlayerHeightCanReach()
+        private void CalculatePlayerHeightCanReach() // split
         {
             totalHeightScore = CurrentScore / 11 * 4;
             if (totalHeightScore >= 365)
