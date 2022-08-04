@@ -29,4 +29,5 @@ daha anlaşılır ve düzgün bir kod yapısı oluşturduk.
 * Change Mesh
 * Obstacle Animation and Collision
 
+![AtmRush_mpeg4 (1)](https://user-images.githubusercontent.com/68375602/182850906-56cad8ec-74b5-4b0a-a41c-71717b804427.gif)
 
