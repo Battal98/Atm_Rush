@@ -48,8 +48,7 @@ namespace Managers
             stackDecreaseController = GetComponent<StackDecreaseController>();
             _stackIncreaseCommand = new StackIncreaseCommand();
             _stackLerpMovementCommand = new StackLerpMovementCommand();
-            _stackScaleCommand = new StackScaleCommand();
-            _playerManager = FindObjectOfType<PlayerManager>().transform;
+            _stackScaleCommand = new StackScaleCommand();    
         }
 
         #region Event Subscription
@@ -107,6 +106,10 @@ namespace Managers
         }
         public void OnIncreaseStack(GameObject _obj)
         {
+            if (!_playerManager)
+            {
+                _playerManager = FindObjectOfType<PlayerManager>().transform;
+            }
             StartCoroutine(_stackScaleCommand.ScaleSizeUpAndDown(StackData.StackList, StackData.StackMaxScaleValue, StackData.StackScaleDelay, StackData.StackTaskDelay));
             if (StackData.StackList.Count == 0)
             {
@@ -133,8 +136,7 @@ namespace Managers
         }
         public void OnStackGeneralDecrease(GameObject _obj, Transform _targetParent)
         {
-            stackDecreaseController.StackGeneralDecrease(_obj,StackData.StackList, _targetParent);
-            
+            stackDecreaseController.StackGeneralDecrease(_obj, StackData.StackList, _targetParent);
         }
 
         private void OnCalculateStackScore()
@@ -150,22 +152,6 @@ namespace Managers
         }
 
         #endregion
-
-        #region Random Throw
-        //private void OnRandomThrowCollectable(GameObject _obj)
-        //{
-        //    int a = StackData.StackList.IndexOf(_obj);
-        //    //stackDecreaseController.ThrowRandomObj(_obj, StackData.StackList);
-        //}
-        #endregion
-
-        #endregion
-
-        #region Calculate Money Jobs
-        public void OnCalculateTotalStackMoney(int _value)
-        {
-
-        }
 
         #endregion
 

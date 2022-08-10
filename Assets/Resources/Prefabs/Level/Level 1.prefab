@@ -34,81 +34,8 @@ Transform:
   - {fileID: 3165551986339140856}
   - {fileID: 2350622149200276814}
   m_Father: {fileID: 3686186589313648555}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &445054649851363412
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4507684798193196761}
-  - component: {fileID: 8338096958883078107}
-  - component: {fileID: 95971864081838322}
-  m_Layer: 0
-  m_Name: StackManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4507684798193196761
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445054649851363412}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.04999999, z: 3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3686186589313648555}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8338096958883078107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445054649851363412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5735c94b7f24845469bd037d9f72061f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StackData:
-    CollectableObj: {fileID: 0}
-    StackList: []
-    StackTaskDelay: 25
-    StackMaxScaleValue: 2
-    StackScaleDelay: 0.25
-    StackLerpDelay: 25
-  ScoreData:
-    StackValue: 0
-    IncomeValue: 1
-    IncomeMultiplier: 0.05
-    TotalGameScore: 0
-    TotalLevelScore: 0
-    StackScore: 0
-    AtmScore: 0
-  stackDecreaseController: {fileID: 95971864081838322}
---- !u!114 &95971864081838322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445054649851363412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f8bc436b3f9e81428c6a3b7a2d2327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectables: {fileID: 9124424850345719950}
 --- !u!1 &2564772961836898336
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +68,6 @@ Transform:
   - {fileID: 9124424850345719945}
   - {fileID: 8719179545295549569}
   - {fileID: 607896245800077363}
-  - {fileID: 4507684798193196761}
   - {fileID: 7547191643563691510}
   - {fileID: 730043636886060413}
   m_Father: {fileID: 0}
@@ -178,7 +104,7 @@ Transform:
   m_LocalScale: {x: 8, y: 0.1, z: 200}
   m_Children: []
   m_Father: {fileID: 3686186589313648555}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4658567103721235332
 MeshFilter:
@@ -253,7 +179,7 @@ GameObject:
   - component: {fileID: 9124424850345719945}
   m_Layer: 0
   m_Name: Collectables
-  m_TagString: Untagged
+  m_TagString: CollectableParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
