@@ -9,38 +9,49 @@ namespace Controllers
     {
         #region Decrease Jobs
 
-        [SerializeField]GameObject  collectables;
+        [SerializeField] private GameObject  collectables;
+
         public void StackHitTheObstacleDecrease(GameObject _obj, List<GameObject> _stackList)
-        {   
+        {
+
+            if (!collectables)
+            {
+                collectables = GameObject.FindGameObjectWithTag("CollectableParent");
+            }
+
             int index = _stackList.IndexOf(_obj);
            
             if (index != _stackList.Count - 1)
             {
-                
-                
-
-                
                 ThrowRandomObj( _stackList, index);
                 
             }
             else
             {
-               // Debug.Log("Count");
                 _stackList.Remove(_obj);
-                //_stackList[_obj].GetComponentInChildren<CollectablePhysicsController>().isITaken = false;
                 Destroy(_obj);
                 _stackList.TrimExcess();
-                
-                //_obj.SetActive(false);
             }
-
-            
         }
 
         public void StackGeneralDecrease(GameObject _obj, List<GameObject> _stackList, Transform _targetParent)
         {
-            _obj.transform.parent = _targetParent;
-            _stackList.Remove(_obj);
+            if (!collectables)
+            {
+                collectables = GameObject.FindGameObjectWithTag("CollectableParent");
+            }
+
+            int index = _stackList.IndexOf(_obj);
+            if (index != _stackList.Count - 1)
+            {
+                ThrowRandomObj(_stackList, index);
+            }
+            else
+            {
+                _obj.transform.parent = _targetParent;
+                _stackList.Remove(_obj);
+            }
+
             //_stackList.TrimExcess();
         }
 
